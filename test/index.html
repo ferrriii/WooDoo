@@ -1,0 +1,59 @@
+<!doctype html>
+<html lang=en>
+<head>
+<meta charset=utf-8>
+<title>WooDoo Test</title>
+<script src="../dist/lib/index.js"></script>
+</head>
+<body>
+<div id="app">App place holder</div>
+
+<script>
+let app = new WooDoo({
+    element: '#app',
+    data: {
+      counter: 0,
+      text: '',
+      nextTodo: '',
+      todos: [],
+      increase() {
+        this.counter++
+      },
+      decrease() {
+        this.counter--
+      },
+      addTodo() {
+        this.todos.push(this.nextTodo)
+      }
+    },
+    template() {
+      return `
+        <div>
+          <h2>Mirror typing</h2>
+          <label>Type anything:</label>
+          <input v-model="text">
+          
+          <div>${this.text}</div>
+        </div>
+        
+        <h2>Counter increase</h2>
+        <span>${this.counter}</span>
+        <button v-on:click="increase">+</button>
+        <button v-on:click="decrease">-</button>
+        
+        <div>
+        <h2>Todo</h2>
+        
+        add <input v-model="nextTodo"><button v-on:click="addTodo">add</button>
+        <ul>
+        ${this.todos.map(todo => `<li>${todo}</li>`).join('')}
+        </ul>
+        </div>
+      `
+    }
+  }
+)
+app.render()  
+</script>
+</body>
+</html>
