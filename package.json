@@ -1,6 +1,6 @@
 {
   "name": "woodoo",
-  "version": "1.0.0",
+  "version": "1.0.1",
   "description": "A simple and lightweight library for creating reactive, state-based UI.",
   "main": "dist/esm/index.js",
   "module": "./dist/esm/index.js",
