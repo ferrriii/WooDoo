@@ -1,0 +1,68 @@
+{
+  "name": "woodoo",
+  "version": "1.0.0",
+  "description": "A simple and lightweight library for creating reactive, state-based UI.",
+  "main": "dist/esm/index.js",
+  "module": "./dist/esm/index.js",
+  "browser": "./dist/esm/index-min.js",
+  "unpkg": "./dist/lib/index-min.js",
+  "jsdelivr": "./dist/lib/index-min.js",
+  "scripts": {
+    "minify:browser": "uglifyjs ./dist/lib/index.js --compress --mangle --comments --source-map --output ./dist/lib/index-min.js",
+    "minify:esm": "uglifyjs ./dist/esm/index.js --compress --mangle --comments --source-map --output ./dist/esm/index-min.js",
+    "lint": "standard --fix",
+    "build:browser": "rollup -c && npm run minify:browser",
+    "build:esm": "cross-env BABEL_ENV=module babel src --out-dir dist/esm --source-maps --copy-files && npm run minify:esm",
+    "build": "npm run lint && npm run build:browser && npm run build:esm"
+  },
+  "author": "ferrriii",
+  "license": "MIT",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/ferrriii/WooDoo.git"
+  },
+  "keywords": [
+    "vue",
+    "react",
+    "reactive",
+    "ui"
+  ],
+  "homepage": "https://github.com/ferrriii/WooDoo#readme",
+  "devDependencies": {
+    "@babel/cli": "^7.15.7",
+    "@babel/core": "^7.15.8",
+    "@babel/preset-env": "^7.15.8",
+    "@rollup/plugin-babel": "^5.3.0",
+    "cross-env": "*",
+    "rollup": "^2.58.3",
+    "standard": "*",
+    "uglify-js": "*"
+  },
+  "babel": {
+    "env": {
+      "module": {
+        "presets": [
+          [
+            "@babel/preset-env",
+            {
+              "bugfixes": true,
+              "targets": {
+               "esmodules": true
+            },
+              "modules": false
+            }
+          ]
+        ]
+      }
+    }
+  },
+  "standard": {
+    "ignore": [
+      "dist/"
+    ],
+    "env": {
+      "jest": true,
+      "browser": true
+    }
+  }
+}
