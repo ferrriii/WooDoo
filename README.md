@@ -33,7 +33,7 @@ Use below template to get started.
           },
           template() {
             return `              
-              Counter: <span>${this.text}</span>
+              <span>${this.text}</span>
             `
           }
         }
@@ -50,3 +50,9 @@ If you would like to use ES modules, include below script in your app.
 ```html
 <script type="module" src="https://unpkg.com/woodoo/dist/esm/index-min.js"></script>
 ```
+
+## Demo
+- [Mirror Typing](https://codepen.io/ferrriii/pen/gOxNLOv)
+- [Counter](https://codepen.io/ferrriii/pen/ExvBNyK)
+- [Stopwatch](https://codepen.io/ferrriii/pen/MWvMbXK)
+- [ToDo list](https://codepen.io/ferrriii/pen/eYEwBqv)
